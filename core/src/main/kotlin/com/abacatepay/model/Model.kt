@@ -10,6 +10,7 @@ data class Customer(
     val taxId: String
 )
 
+
 @Serializable
 data class Product(
     val externalId: String,
@@ -57,12 +58,15 @@ data class BillingResponse(
     val methods: List<PaymentMethod>,
     val products: List<ProductResponse>,
     val frequency: PaymentFrequency,
-    val accountId: String,
-    val storeId: String,
+    val accountId: String? = null,
+    val storeId: String? = null,
     val createdAt: String,
     val updatedAt: String,
     val metadata: BillingMetadata,
-    val customer: Metadata<Customer>
+    val customer: Metadata<Customer>,
+    val allowCoupons: Boolean,
+    val coupons: List<String>,
+    val couponsUsed: List<String>
 )
 
 @Serializable

@@ -31,6 +31,7 @@ class AbacatePayClientTest {
             listOf(product),
             "http://voltar",
             "http://completar",
+
             customer = customer
         )
 
@@ -78,7 +79,10 @@ class AbacatePayClientTest {
                 "http://voltar",
                 "http://completar"
             ),
-            Metadata(customer)
+            Metadata(customer),
+            coupons = listOf("123"),
+            couponsUsed = listOf(),
+            allowCoupons = true
         )
 
     @Test
@@ -86,7 +90,7 @@ class AbacatePayClientTest {
         val customer = customerTemplate()
         val abacatePayClient: AbacatePayClient = abacatePayClientMock(
             AbacatePayResponse(
-                createCustomeResponseTemplate(customer)
+                createCustomerResponseTemplate(customer)
             )
         )
 
@@ -116,7 +120,7 @@ class AbacatePayClientTest {
         }
     }
 
-    private fun createCustomeResponseTemplate(customer: Customer) = CreateCustomerResponse(
+    private fun createCustomerResponseTemplate(customer: Customer) = CreateCustomerResponse(
         "id",
         true,
         "accountId",
