@@ -82,7 +82,8 @@ class AbacatePayClientTest {
             Metadata(customer),
             coupons = listOf("123"),
             couponsUsed = listOf(),
-            allowCoupons = true
+            allowCoupons = true,
+            paidAmount = 100
         )
 
     @Test

@@ -66,7 +66,9 @@ data class BillingResponse(
     val customer: Metadata<Customer>,
     val allowCoupons: Boolean,
     val coupons: List<String>,
-    val couponsUsed: List<String>
+    val couponsUsed: List<String>,
+    val paidAmount: Int? = null,
+    val nextBilling: String? = null
 )
 
 @Serializable
